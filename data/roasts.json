@@ -1,0 +1,30 @@
+{
+  "perfect": [
+    "Are you even human? Nobody scores that high!",
+    "The brain has entered the chat.",
+    "Someone's been doing their homework... nerd!",
+    "Absolutely unhinged. Seek help.",
+    "We bow to the big brain energy."
+  ],
+  "great": [
+    "Not bad, not bad. The trivia gods are pleased.",
+    "Okay okay, we see you flexing.",
+    "Your brain cells are pulling overtime today.",
+    "Someone actually paid attention in school.",
+    "Genuinely impressive. Don't let it go to your head."
+  ],
+  "average": [
+    "You tried. Bless your heart.",
+    "Could be worse. Could also be better.",
+    "Your neurons need a little warm-up.",
+    "Solid B-minus energy right there.",
+    "You're like Wi-Fi — sometimes connected, sometimes not."
+  ],
+  "poor": [
+    "Did you guess? Because that looked like guessing.",
+    "Even the cat next door might have done better.",
+    "We believe in you. Just... maybe study first?",
+    "Your confidence was admirable. Your answers, less so.",
+    "The good news: there's nowhere to go but up."
+  ]
+}

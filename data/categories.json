@@ -1,0 +1,72 @@
+[
+  {
+    "id": "technology",
+    "label": "Technology",
+    "icon": "mdi:laptop",
+    "color": "#6C63FF",
+    "tagline": "Tech that shapes the world"
+  },
+  {
+    "id": "science",
+    "label": "Science",
+    "icon": "mdi:flask",
+    "color": "#00C9A7",
+    "tagline": "Experiment with knowledge"
+  },
+  {
+    "id": "history",
+    "label": "History",
+    "icon": "mdi:pillar",
+    "color": "#FF6B6B",
+    "tagline": "Rewrite the past"
+  },
+  {
+    "id": "english",
+    "label": "English",
+    "icon": "mdi:alphabetical",
+    "color": "#F7B731",
+    "tagline": "Words have power"
+  },
+  {
+    "id": "music",
+    "label": "Music",
+    "icon": "mdi:music-note",
+    "color": "#FD79A8",
+    "tagline": "Feel the rhythm"
+  },
+  {
+    "id": "animals",
+    "label": "Animals",
+    "icon": "mdi:paw",
+    "color": "#55EFC4",
+    "tagline": "Wild & wonderful"
+  },
+  {
+    "id": "space",
+    "label": "Space",
+    "icon": "mdi:rocket-launch",
+    "color": "#A29BFE",
+    "tagline": "Beyond the stars"
+  },
+  {
+    "id": "general",
+    "label": "General Knowledge",
+    "icon": "mdi:brain",
+    "color": "#FDCB6E",
+    "tagline": "Know it all"
+  },
+  {
+    "id": "health",
+    "label": "Health",
+    "icon": "mdi:heart-pulse",
+    "color": "#E17055",
+    "tagline": "Know your body"
+  },
+  {
+    "id": "food",
+    "label": "Food & Drinks",
+    "icon": "mdi:food",
+    "color": "#74B9FF",
+    "tagline": "Taste the trivia"
+  }
+]

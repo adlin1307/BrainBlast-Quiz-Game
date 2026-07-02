@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BrainBlast — The premium interactive party quiz game." />
+  <meta name="theme-color" content="#0D0D1A" />
+  <title>BrainBlast</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@700&display=swap"
+    rel="stylesheet"
+  />
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/landing.css" />
+  <link rel="stylesheet" href="css/game.css" />
+  <link rel="stylesheet" href="css/popup.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <section id="screen-landing" class="screen" aria-label="Landing">
+
+    <!-- Background -->
+    <div class="landing-bg" aria-hidden="true">
+      <div class="landing-bg__glow landing-bg__glow--1"></div>
+      <div class="landing-bg__glow landing-bg__glow--2"></div>
+      <div class="landing-bg__glow landing-bg__glow--3"></div>
+      <div class="landing-bg__particles"></div>
+    </div>
+
+    <!-- Hero -->
+    <main class="landing-hero">
+
+      <!-- Logo -->
+      <div class="landing-logo anim-fade-in-scale">
+        <div class="landing-logo__icon" aria-hidden="true">
+          <iconify-icon icon="mdi:brain" noobserver></iconify-icon>
+        </div>
+        <h1 class="landing-logo__title">BrainBlast</h1>
+        <p class="landing-logo__tagline">The ultimate party quiz showdown</p>
+      </div>
+
+      <div class="landing-cta anim-fade-in-up delay-3">
+        <button id="btn-play" class="btn btn-cta" type="button">
+          <iconify-icon icon="mdi:lightning-bolt" noobserver></iconify-icon>
+          Let's Play
+        </button>
+      </div>
+
+      <nav class="landing-nav anim-fade-in-up delay-5" aria-label="Main menu">
+        <button id="btn-settings" class="btn btn-ghost" type="button"
+          aria-haspopup="dialog">
+          <iconify-icon icon="mdi:cog" noobserver></iconify-icon>
+          Settings
+        </button>
+        <button id="btn-how-to-play" class="btn btn-ghost" type="button"
+          aria-haspopup="dialog">
+          <iconify-icon icon="mdi:help-circle" noobserver></iconify-icon>
+          How to Play
+        </button>
+      </nav>
+
+    </main>
+
+    <footer class="landing-footer" aria-hidden="true">
+      Crafted by Adlin 🤍
+    </footer>
+
+  </section>
+
+  <section id="screen-setup" class="screen" aria-label="Game setup">
+
+    <!-- Header -->
+    <header class="setup-header w-full">
+      <button id="btn-back" class="setup-header__back" type="button"
+        aria-label="Back to home">
+        <iconify-icon icon="mdi:arrow-left" noobserver></iconify-icon>
+      </button>
+      <h2 class="setup-header__title">Set Up Your Game</h2>
+      <button id="btn-setup-settings" class="setup-header__settings btn btn-ghost btn-icon"
+        type="button" aria-label="Open settings" aria-haspopup="dialog">
+        <iconify-icon icon="mdi:cog" noobserver></iconify-icon>
+      </button>
+    </header>
+
+    <div class="setup-body">
+
+      <!-- Game mode -->
+      <section class="setup-section" aria-labelledby="label-mode">
+        <p class="section-label" id="label-mode">Game Mode</p>
+        <div class="mode-selector" role="group" aria-label="Choose game mode">
+
+          <button id="mode-solo" class="mode-card"
+            type="button" aria-pressed="false" data-mode="solo">
+            <span class="mode-card__icon" aria-hidden="true">
+              <iconify-icon icon="mdi:account" noobserver></iconify-icon>
+            </span>
+            <span class="mode-card__label">Solo</span>
+            <span class="mode-card__desc">Challenge yourself against the clock.</span>
+          </button>
+
+          <button id="mode-multi" class="mode-card"
+            type="button" aria-pressed="false" data-mode="multiplayer">
+            <span class="mode-card__icon" aria-hidden="true">
+              <iconify-icon icon="mdi:account-group" noobserver></iconify-icon>
+            </span>
+            <span class="mode-card__label">Multiplayer</span>
+            <span class="mode-card__desc">Battle friends in the same room.</span>
+          </button>
+
+        </div>
+      </section>
+
+      <!-- Categories -->
+      <section class="setup-section" aria-labelledby="label-categories">
+        <p class="section-label" id="label-categories">Categories
+          <span class="text-faint fw-400 text-xs"> · pick one or more</span>
+        </p>
+        <div id="category-grid" class="category-grid" role="group"
+          aria-label="Select categories"></div>
+      </section>
+
+      <!-- Challenge level -->
+      <section class="setup-section" aria-labelledby="label-level">
+        <p class="section-label" id="label-level">Challenge Level</p>
+        <div class="level-row" role="group" aria-label="Choose difficulty">
+
+          <button class="level-card"
+            type="button" aria-pressed="false" data-level="explorer">
+            <span class="level-card__icon" aria-hidden="true">🧭</span>
+            <span class="level-card__name">Explorer</span>
+            <span class="level-card__desc">Easy warm-up questions. Great for beginners.</span>
+          </button>
+
+          <button class="level-card"
+            type="button" aria-pressed="false" data-level="challenger">
+            <span class="level-card__icon" aria-hidden="true">⚡</span>
+            <span class="level-card__name">Challenger</span>
+            <span class="level-card__desc">Medium difficulty. Things get spicy.</span>
+          </button>
+
+          <button class="level-card"
+            type="button" aria-pressed="false" data-level="mastermind">
+            <span class="level-card__icon" aria-hidden="true">🧠</span>
+            <span class="level-card__name">Mastermind</span>
+            <span class="level-card__desc">Hard questions. Legends only.</span>
+          </button>
+
+        </div>
+      </section>
+
+      <!-- Game length -->
+      <section class="setup-section" aria-labelledby="label-length">
+        <p class="section-label" id="label-length">Game Length</p>
+        <div class="length-row" role="group" aria-label="Choose number of questions">
+
+          <button class="length-card"
+            type="button" aria-pressed="false" data-length="quick">
+            <span class="length-card__count">5</span>
+            <span class="length-card__name">Quick Blast</span>
+            <span class="length-card__sub">~3 mins</span>
+          </button>
+
+          <button class="length-card"
+            type="button" aria-pressed="false" data-length="classic">
+            <span class="length-card__count">10</span>
+            <span class="length-card__name">Classic Blast</span>
+            <span class="length-card__sub">~6 mins</span>
+          </button>
+
+          <button class="length-card"
+            type="button" aria-pressed="false" data-length="ultimate">
+            <span class="length-card__count">15</span>
+            <span class="length-card__name">Ultimate Blast</span>
+            <span class="length-card__sub">~10 mins</span>
+          </button>
+
+        </div>
+      </section>
+      <div class="setup-cta">
+        <button id="btn-begin" class="btn btn-cta" type="button"
+          disabled aria-disabled="true">
+          <iconify-icon icon="mdi:rocket-launch" noobserver></iconify-icon>
+          Begin Challenge
+        </button>
+        <p class="setup-cta__hint text-faint text-xs" id="setup-hint">
+          Choose mode, categories, difficulty &amp; length to begin
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="screen-game" class="screen" aria-label="Gameplay">
+
+    <!-- Top bar -->
+    <header class="game-topbar">
+
+      <div class="game-topbar__left">
+        <!-- Score -->
+        <div class="game-score" aria-label="Current score">
+          <span id="game-score-value" class="game-score__value">0</span>
+          <span class="game-score__label">Score</span>
+        </div>
+      </div>
+
+      <!-- Question counter -->
+      <div class="game-counter" aria-label="Question progress">
+        Question <em id="game-q-current">1</em> of <em id="game-q-total">10</em>
+      </div>
+
+      <div class="game-topbar__right">
+        <!-- Pause button -->
+        <button class="btn btn-ghost btn-icon" type="button"
+          aria-label="Pause game" id="btn-pause-game">
+          <iconify-icon icon="mdi:pause" noobserver></iconify-icon>
+        </button>
+        <!-- Exit button -->
+        <button class="btn btn-ghost btn-icon" type="button"
+          aria-label="Exit game" id="btn-exit-game">
+          <iconify-icon icon="mdi:close" noobserver></iconify-icon>
+        </button>
+      </div>
+
+    </header>
+
+    <!-- Progress bar -->
+    <div class="game-progress" role="progressbar"
+      aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+      aria-label="Game progress">
+      <div id="game-progress-fill" class="game-progress__fill" style="width: 0%"></div>
+    </div>
+    <div id="game-players" class="game-players" aria-label="Players" hidden></div>
+
+    <div class="game-body">
+
+      <!-- Timer bar -->
+      <div class="game-timer-bar" id="game-timer-bar"
+        role="progressbar" aria-label="Time remaining"
+        aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+        <div class="game-timer-bar__fill"></div>
+      </div>
+
+      <!-- Host message -->
+      <div class="game-host anim-fade-in-up" id="game-host">
+        <div class="game-host__avatar" aria-hidden="true">
+          <iconify-icon icon="mdi:robot-excited" noobserver></iconify-icon>
+        </div>
+        <div class="game-host__bubble">
+          <p class="game-host__name">BrainBot</p>
+          <p class="game-host__text" id="game-host-text">
+            Get ready — your challenge begins in a moment!
+          </p>
+        </div>
+      </div>
+      <div class="reading-hud" id="reading-hud" hidden aria-live="polite">
+        <span class="reading-hud__eyes" aria-hidden="true">👀</span>
+        <div class="reading-hud__text">
+          <span class="reading-hud__title">READING TIME</span>
+          <span class="reading-hud__sub">Read the question carefully</span>
+        </div>
+        <div class="reading-hud__countdown" id="reading-countdown" aria-label="Seconds remaining to read" aria-live="off">5</div>
+      </div>
+
+      <!-- Question card -->
+      <article class="question-card question-card--placeholder anim-fade-in-up delay-2"
+        id="question-card">
+        <div class="question-card__meta">
+          <span class="question-card__category" id="q-category">Category</span>
+          <span class="question-card__difficulty text-muted" id="q-difficulty">Explorer</span>
+        </div>
+        <p class="question-card__text" id="q-text">
+          Your question will appear here once the game begins.
+        </p>
+      </article>
+      <div class="answer-grid" id="answer-grid"
+        role="group" aria-label="Answer options">
+      </div>
+
+      <!-- Fun fact -->
+      <aside class="game-funfact" id="game-funfact" aria-label="Fun fact">
+        <span class="game-funfact__icon" aria-hidden="true">💡</span>
+        <p class="game-funfact__text" id="game-funfact-text">
+          Fun fact will appear here after you answer.
+        </p>
+      </aside>
+      <div class="game-continue">
+        <button id="btn-continue" class="btn btn-primary" type="button">
+          <iconify-icon icon="mdi:arrow-right" noobserver></iconify-icon>
+          Continue
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="screen-results" class="screen" aria-label="Results">
+    <canvas id="results-confetti-canvas" aria-hidden="true"></canvas>
+
+    <!-- Solo results -->
+    <div id="results-solo" class="results-solo" hidden>
+
+      <div class="res-performance-title anim-fade-in-scale">
+        <p class="res-performance-eyebrow" aria-hidden="true">✨ PERFORMANCE UNLOCKED</p>
+        <h2 class="res-performance-title__text" id="solo-result-title">Brain Emperor</h2>
+        <p class="res-performance-subtitle" id="solo-result-subtitle">Outstanding performance.</p>
+      </div>
+      <div class="res-score-big anim-fade-in-up delay-2">
+        <canvas class="res-score-particles" id="solo-score-particles" aria-hidden="true"></canvas>
+        <span class="res-score-big__value" id="solo-score">0</span>
+      </div>
+      <div class="res-stats-row anim-fade-in-up delay-3" id="solo-stats-grid"
+        role="list" aria-label="Game statistics">
+      </div>
+
+      <!-- BrainBot roast card -->
+      <div class="res-brainbot-roast anim-fade-in-up delay-4" id="solo-brainbot">
+        <div class="res-brainbot-roast__avatar" aria-hidden="true">
+          <iconify-icon icon="mdi:robot-excited" noobserver></iconify-icon>
+        </div>
+        <div class="res-brainbot-roast__bubble">
+          <p class="res-brainbot-roast__name">BrainBot</p>
+          <p class="res-brainbot-roast__text" id="solo-brainbot-text">
+            Your roast will appear here.
+          </p>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="res-actions-stack anim-fade-in-up delay-5">
+        <button id="btn-solo-play-again" class="btn btn-cta btn-large" type="button">
+          <iconify-icon icon="mdi:refresh" noobserver></iconify-icon>
+          Play Again
+        </button>
+        <button id="btn-solo-change-setup" class="btn btn-secondary btn-medium" type="button">
+          <iconify-icon icon="mdi:cog" noobserver></iconify-icon>
+          Change Setup
+        </button>
+        <button id="btn-solo-home" class="btn btn-ghost btn-small" type="button">
+          <iconify-icon icon="mdi:home" noobserver></iconify-icon>
+          Home
+        </button>
+      </div>
+
+    </div>
+
+
+    <!-- Multiplayer results -->
+    <div id="results-multi" class="results-multi" hidden>
+
+      <!-- Winner hero section -->
+      <div class="res-winner" id="mp-winner-section" aria-label="Winner">
+
+        <!-- Soft golden backdrop -->
+        <div class="res-winner__backdrop" aria-hidden="true"></div>
+
+        <!-- Crown -->
+        <div class="res-winner__crown" aria-hidden="true">👑</div>
+        <div class="res-winner__title" id="mp-winner-title">Brain Emperor 👑</div>
+
+        <div class="res-winner__avatar-ring" aria-hidden="true">
+          <div class="res-winner__avatar" id="mp-winner-avatar">
+            <iconify-icon icon="mdi:robot-excited" noobserver></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Name -->
+        <div class="res-winner__name" id="mp-winner-name">Player 1</div>
+
+        <!-- Score -->
+        <div class="res-winner__score" id="mp-winner-score" aria-label="Final score">
+          <span class="mp-winner-score__num">0</span>
+          <span class="mp-winner-score__label"> POINTS</span>
+        </div>
+
+        <div class="res-winner__brainbot" id="mp-winner-brainbot">
+          <iconify-icon icon="mdi:robot-excited" noobserver aria-hidden="true"></iconify-icon>
+          <span id="mp-winner-brainbot-text">"And today's champion is..."</span>
+        </div>
+
+      </div>
+      <section class="res-leaderboard-section" aria-labelledby="lb-heading">
+        <h3 class="res-lb-heading" id="lb-heading" aria-label="Final standings">
+          <span aria-hidden="true">🏆</span> Final Standings
+        </h3>
+        <div class="res-leaderboard" id="mp-leaderboard"
+          role="list" aria-label="Final leaderboard">
+        </div>
+      </section>
+
+      <section class="res-awards-section" aria-labelledby="awards-heading">
+        <h3 class="res-lb-heading" id="awards-heading" aria-label="Player awards">
+          <span aria-hidden="true">🎖️</span> Player Awards
+        </h3>
+        <div class="res-awards" id="mp-awards"
+          role="list" aria-label="Player awards">
+        </div>
+      </section>
+      <section class="res-matchstats-section" id="mp-matchstats-section"
+        aria-labelledby="matchstats-heading" hidden>
+        <h3 class="res-lb-heading" id="matchstats-heading" aria-label="Match statistics">
+          <span aria-hidden="true">📊</span> Match Statistics
+        </h3>
+        <div class="res-matchstats-grid" id="mp-match-stats"
+          role="list" aria-label="Match statistics">
+        </div>
+      </section>
+
+      <!-- Actions -->
+      <div class="res-actions anim-fade-in-up delay-5">
+        <button id="btn-mp-rematch" class="btn btn-cta res-actions__cta" type="button">
+          <iconify-icon icon="mdi:sword-cross" noobserver></iconify-icon>
+          Rematch
+        </button>
+        <button id="btn-mp-new-setup" class="btn btn-ghost" type="button">
+          <iconify-icon icon="mdi:cog" noobserver></iconify-icon>
+          New Setup
+        </button>
+        <button id="btn-mp-home" class="btn btn-ghost" type="button">
+          <iconify-icon icon="mdi:home" noobserver></iconify-icon>
+          Home
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Settings -->
+  <div id="overlay-settings" class="overlay" role="dialog"
+    aria-modal="true" aria-labelledby="modal-settings-title">
+    <div class="modal">
+      <div class="modal__header">
+        <h3 class="modal__title" id="modal-settings-title">
+          <iconify-icon icon="mdi:cog" noobserver></iconify-icon>
+          Settings
+        </h3>
+        <button class="modal__close" type="button"
+          data-close-modal="overlay-settings" aria-label="Close settings">
+          <iconify-icon icon="mdi:close" noobserver></iconify-icon>
+        </button>
+      </div>
+      <div class="modal__body">
+
+        <div class="settings-row">
+          <div class="settings-row__info">
+            <span class="settings-row__label">Sound Effects</span>
+            <span class="settings-row__desc">Button clicks and answer feedback</span>
+          </div>
+          <label class="toggle" aria-label="Toggle sound effects">
+            <input type="checkbox" class="toggle__input" id="toggle-sound" checked />
+            <span class="toggle__track"></span>
+          </label>
+        </div>
+
+        <div class="settings-row">
+          <div class="settings-row__info">
+            <span class="settings-row__label">Background Music</span>
+            <span class="settings-row__desc">Ambient soundtrack during gameplay</span>
+          </div>
+          <label class="toggle" aria-label="Toggle background music">
+            <input type="checkbox" class="toggle__input" id="toggle-music" />
+            <span class="toggle__track"></span>
+          </label>
+        </div>
+
+        <div class="settings-row">
+          <div class="settings-row__info">
+            <span class="settings-row__label">Volume</span>
+            <span class="settings-row__desc">Master volume for all sounds</span>
+          </div>
+          <input type="range" class="settings-slider" id="slider-volume"
+            min="0" max="100" value="70" aria-label="Volume" />
+        </div>
+
+        <div class="settings-row">
+          <div class="settings-row__info">
+            <span class="settings-row__label">Animations</span>
+            <span class="settings-row__desc">Transition and entrance animations</span>
+          </div>
+          <label class="toggle" aria-label="Toggle animations">
+            <input type="checkbox" class="toggle__input" id="toggle-animations" checked />
+            <span class="toggle__track"></span>
+          </label>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- How to play -->
+  <div id="overlay-howto" class="overlay" role="dialog"
+    aria-modal="true" aria-labelledby="modal-howto-title">
+    <div class="modal">
+      <div class="modal__header">
+        <h3 class="modal__title" id="modal-howto-title">
+          <iconify-icon icon="mdi:help-circle" noobserver></iconify-icon>
+          How to Play
+        </h3>
+        <button class="modal__close" type="button"
+          data-close-modal="overlay-howto" aria-label="Close how to play">
+          <iconify-icon icon="mdi:close" noobserver></iconify-icon>
+        </button>
+      </div>
+      <div class="modal__body">
+
+        <div class="howto-step">
+          <div class="howto-step__num">1</div>
+          <p class="howto-step__text">
+            <strong>Set up your game. </strong>Choose Solo or Multiplayer, pick your favorite categories, choose a difficulty, and decide how many questions you want to play.
+          </p>
+        </div>
+
+        <div class="howto-step">
+          <div class="howto-step__num">2</div>
+          <p class="howto-step__text">
+            <strong>Answer before the timer runs out.</strong> Each question has 30 seconds. Read carefully, think it through, and choose the best answer before the timer ends.
+          </p>
+        </div>
+
+        <div class="howto-step">
+          <div class="howto-step__num">3</div>
+          <p class="howto-step__text">
+            <strong>Earn points for each correct answer.</strong> Every correct answer increases your score. Harder difficulties are worth more points.
+          </p>
+        </div>
+
+        <div class="howto-step">
+          <div class="howto-step__num">4</div>
+          <p class="howto-step__text">
+            <strong>In multiplayer, take turns.</strong> Each player answers
+            the same set of questions. The highest score wins. The losers get
+            roasted — lovingly.
+          </p>
+        </div>
+
+        <div class="howto-step">
+          <div class="howto-step__num">5</div>
+          <p class="howto-step__text">
+            <strong>Learn something new.</strong> Every question ends with a fun fact, so you'll always discover something interesting—even if you get it wrong.
+          </p>
+        </div>
+
+      </div>
+      <div class="modal__footer">
+        <button class="btn btn-primary" type="button"
+          data-close-modal="overlay-howto">
+          Got it, let's go!
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="overlay-achievements" class="overlay" role="dialog"
+    aria-modal="true" aria-labelledby="modal-ach-title">
+    <div class="modal">
+      <div class="modal__header">
+        <h3 class="modal__title" id="modal-ach-title">
+          <iconify-icon icon="mdi:trophy" noobserver></iconify-icon>
+          Achievements
+        </h3>
+        <button class="modal__close" type="button"
+          data-close-modal="overlay-achievements" aria-label="Close achievements">
+          <iconify-icon icon="mdi:close" noobserver></iconify-icon>
+        </button>
+      </div>
+      <div class="modal__body">
+        <div id="achievements-body"></div>
+      </div>
+    </div>
+  </div>
+  <div id="overlay-mp-setup" class="overlay" role="dialog"
+    aria-modal="true" aria-labelledby="modal-mp-title">
+    <div class="modal">
+      <div class="modal__header">
+        <h3 class="modal__title" id="modal-mp-title">
+          <iconify-icon icon="mdi:account-group" noobserver></iconify-icon>
+          Set Up Players
+        </h3>
+        <button class="modal__close" type="button"
+          data-close-modal="overlay-mp-setup" aria-label="Close">
+          <iconify-icon icon="mdi:close" noobserver></iconify-icon>
+        </button>
+      </div>
+      <div class="modal__body">
+        <p class="text-muted text-sm" style="margin-bottom:var(--space-4)">
+          2–6 players · Each picks a unique avatar and name.
+        </p>
+        <div id="mp-players-form"></div>
+        <button id="btn-mp-add-player" class="btn btn-ghost w-full" type="button"
+          style="margin-top:var(--space-4)">
+          <iconify-icon icon="mdi:plus" noobserver></iconify-icon>
+          Add Player
+        </button>
+      </div>
+      <div class="modal__footer">
+        <button id="btn-mp-start" class="btn btn-cta w-full" type="button">
+          <iconify-icon icon="mdi:rocket-launch" noobserver></iconify-icon>
+          Start Game
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Avatar picker -->
+  <div id="overlay-avatar-picker" class="overlay" role="dialog"
+    aria-modal="true" aria-labelledby="modal-av-title">
+    <div class="modal modal--sm">
+      <div class="modal__header">
+        <h3 class="modal__title" id="modal-av-title">
+          <iconify-icon icon="mdi:emoticon-happy" noobserver></iconify-icon>
+          Choose Avatar
+        </h3>
+        <button class="modal__close" type="button"
+          data-close-modal="overlay-avatar-picker" aria-label="Close">
+          <iconify-icon icon="mdi:close" noobserver></iconify-icon>
+        </button>
+      </div>
+      <div class="modal__body">
+        <div id="avatar-picker-grid" class="avatar-picker-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pause menu -->
+  <div id="overlay-pause" class="overlay" role="dialog"
+    aria-modal="true" aria-labelledby="modal-pause-title">
+    <div class="modal modal--pause">
+      <div class="pause-menu">
+        <div class="pause-menu__header">
+          <span class="pause-menu__icon" aria-hidden="true">⏸️</span>
+          <h3 class="pause-menu__title" id="modal-pause-title">PAUSED</h3>
+          <p class="pause-menu__sub">Take a break.</p>
+        </div>
+        <div class="pause-menu__actions">
+          <button id="btn-pause-resume" class="btn btn-primary pause-menu__btn" type="button">
+            <iconify-icon icon="mdi:play" noobserver></iconify-icon>
+            Resume
+          </button>
+          <button id="btn-pause-settings" class="btn btn-ghost pause-menu__btn" type="button">
+            <iconify-icon icon="mdi:cog" noobserver></iconify-icon>
+            Settings
+          </button>
+          <button id="btn-pause-home" class="btn btn-ghost pause-menu__btn pause-menu__btn--home" type="button">
+            <iconify-icon icon="mdi:home" noobserver></iconify-icon>
+            Home
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Home configuration -->
+  <div id="overlay-pause-confirm" class="overlay" role="dialog"
+    aria-modal="true" aria-labelledby="modal-confirm-title">
+    <div class="modal modal--confirm">
+      <div class="pause-confirm">
+        <span class="pause-confirm__icon" aria-hidden="true">🏠</span>
+        <h3 class="pause-confirm__title" id="modal-confirm-title">Leave current game?</h3>
+        <p class="pause-confirm__sub">Your current progress will be lost.</p>
+        <div class="pause-confirm__actions">
+          <button id="btn-confirm-cancel" class="btn btn-ghost pause-confirm__btn" type="button">
+            Cancel
+          </button>
+          <button id="btn-confirm-leave" class="btn btn-danger pause-confirm__btn" type="button">
+            Leave Game
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="overlay-reading" class="overlay overlay--reading" aria-label="Reading phase" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Pass device -->
+  <div id="overlay-pass-device" class="overlay overlay--pass" aria-label="Pass the device">
+    <div class="pass-box">
+      <span class="pass-box__icon" aria-hidden="true">📱</span>
+      <p class="pass-box__label">Pass the device to</p>
+      <p class="pass-box__name" id="pass-player-name">Player</p>
+      <p class="pass-box__hint">Tap anywhere to continue</p>
+    </div>
+  </div>
+
+  <!-- Fun fact popup -->
+  <div id="overlay-funfact" class="overlay overlay--funfact" aria-label="Fun fact">
+    <div class="funfact-card glass-card">
+      <div class="funfact-card__header">
+        <span class="funfact-card__brain" aria-hidden="true">🧠</span>
+        <span class="funfact-card__title">Fun Fact</span>
+      </div>
+      <p class="funfact-card__text" id="funfact-text"></p>
+      <button id="btn-funfact-next" class="btn btn-primary funfact-card__btn" type="button">
+        <iconify-icon icon="mdi:arrow-right" noobserver></iconify-icon>
+        Next Question
+      </button>
+    </div>
+  </div>
+  <div id="overlay-calculating" class="overlay overlay--calculating" aria-live="polite" aria-label="Calculating results" aria-hidden="true">
+    <div class="calc-box">
+      <span class="calc-box__trophy" aria-hidden="true">🏆</span>
+      <p class="calc-box__text">CALCULATING RESULTS<span class="calc-box__dots"><span>.</span><span>.</span><span>.</span></span></p>
+    </div>
+  </div>
+
+  <div id="overlay-winner-slide" class="overlay overlay--winner" aria-label="Winner presentation">
+    <div class="winner-slide glass-card">
+      <p class="winner-slide__title" id="winner-slide-title">🥇 Mastermind</p>
+      <div class="winner-slide__avatar" id="winner-slide-avatar" aria-hidden="true">
+        <iconify-icon icon="mdi:robot-excited" noobserver></iconify-icon>
+      </div>
+      <p class="winner-slide__name"  id="winner-slide-name">Player</p>
+      <p class="winner-slide__score" id="winner-slide-score">0 pts</p>
+      <p class="winner-slide__roast" id="winner-slide-roast"></p>
+      <button id="btn-winner-next" class="btn btn-primary winner-slide__btn" type="button">
+        <iconify-icon icon="mdi:arrow-right" noobserver></iconify-icon>
+        Next
+      </button>
+    </div>
+  </div>
+
+  <!-- Multiplayer Final Leaderboard -->
+  <div id="overlay-mp-leaderboard" class="overlay overlay--leaderboard" aria-label="Final leaderboard">
+    <div class="modal modal--leaderboard">
+      <div class="modal__header">
+        <h3 class="modal__title">
+          <iconify-icon icon="mdi:trophy" noobserver></iconify-icon>
+          Final Leaderboard
+        </h3>
+      </div>
+      <div class="modal__body">
+        <div id="mp-leaderboard-list" class="mp-leaderboard-list"></div>
+      </div>
+      <div class="modal__footer" style="flex-direction:column;gap:var(--space-2)">
+        <button id="btn-lb-play-again" class="btn btn-primary w-full" type="button">
+          <iconify-icon icon="mdi:refresh" noobserver></iconify-icon>
+          Play Again
+        </button>
+        <button id="btn-lb-home" class="btn btn-ghost w-full" type="button">
+          <iconify-icon icon="mdi:home" noobserver></iconify-icon>
+          Home
+        </button>
+      </div>
+    </div>
+  </div>
+<!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/sounds.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/popup.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/timer.js"></script>
+  <script src="js/scoring.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/multiplayer.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

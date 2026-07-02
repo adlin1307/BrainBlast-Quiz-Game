@@ -1,0 +1,50 @@
+[
+  {
+    "id": "first-win",
+    "icon": "mdi:trophy",
+    "label": "First Win",
+    "description": "Complete your first challenge",
+    "color": "#FDCB6E",
+    "unlocked": false
+  },
+  {
+    "id": "perfect-score",
+    "icon": "mdi:star-circle",
+    "label": "Perfect Score",
+    "description": "Answer every question correctly",
+    "color": "#6C63FF",
+    "unlocked": false
+  },
+  {
+    "id": "speed-demon",
+    "icon": "mdi:lightning-bolt",
+    "label": "Speed Demon",
+    "description": "Answer 5 questions in under 5s each",
+    "color": "#FF6B6B",
+    "unlocked": false
+  },
+  {
+    "id": "mastermind",
+    "icon": "mdi:brain",
+    "label": "Mastermind",
+    "description": "Complete a Mastermind level game",
+    "color": "#A29BFE",
+    "unlocked": false
+  },
+  {
+    "id": "party-starter",
+    "icon": "mdi:account-group",
+    "label": "Party Starter",
+    "description": "Play your first multiplayer game",
+    "color": "#FD79A8",
+    "unlocked": false
+  },
+  {
+    "id": "explorer",
+    "icon": "mdi:compass",
+    "label": "Explorer",
+    "description": "Play all 10 categories",
+    "color": "#00C9A7",
+    "unlocked": false
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "solo": {
+    "title": "Challenge Complete!",
+    "subtitle": "Here's how you did"
+  },
+  "multiplayer": {
+    "title": "We Have a Winner!",
+    "subtitle": "The crowd goes wild"
+  },
+  "ranks": [
+    { "min": 90, "label": "Mastermind", "icon": "mdi:crown", "color": "#FDCB6E" },
+    { "min": 70, "label": "Challenger", "icon": "mdi:medal", "color": "#A29BFE" },
+    { "min": 50, "label": "Explorer",   "icon": "mdi:compass", "color": "#00C9A7" },
+    { "min": 0,  "label": "Rookie",     "icon": "mdi:emoticon-sad", "color": "#FF6B6B" }
+  ]
+}

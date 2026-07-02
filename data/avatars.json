@@ -1,0 +1,14 @@
+[
+  { "id": "avatar-1",  "icon": "mdi:ghost",           "label": "Ghost",    "color": "#A29BFE" },
+  { "id": "avatar-2",  "icon": "mdi:star",              "label": "Star",     "color": "#FDCB6E" },
+  { "id": "avatar-3",  "icon": "mdi:sunglasses",       "label": "Cool",     "color": "#74B9FF" },
+  { "id": "avatar-4",  "icon": "mdi:panda",            "label": "Panda",    "color": "#55EFC4" },
+  { "id": "avatar-5",  "icon": "mdi:owl",              "label": "Fox",      "color": "#E17055" },
+  { "id": "avatar-6",  "icon": "mdi:flower-tulip",     "label": "Blossom",  "color": "#FD79A8" },
+  { "id": "avatar-7",  "icon": "mdi:dice-multiple",    "label": "Dice",     "color": "#6C63FF" },
+  { "id": "avatar-8",  "icon": "mdi:alien",            "label": "Alien",    "color": "#00C9A7" },
+  { "id": "avatar-9",  "icon": "mdi:robot",            "label": "Robot",    "color": "#636E72" },
+  { "id": "avatar-10", "icon": "mdi:cowboy",           "label": "Cowboy",   "color": "#F7B731" },
+  { "id": "avatar-11", "icon": "mdi:lightbulb-on",     "label": "Bulb",     "color": "#FFE66D" },
+  { "id": "avatar-12", "icon": "mdi:bullseye",         "label": "Target",   "color": "#FF6B6B" }
+]
