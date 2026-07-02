@@ -36,7 +36,7 @@ const Storage = (() => {
   
   const DEFAULT_SETTINGS = {
     soundEnabled:  true,
-    musicEnabled:  false,
+    musicEnabled:  true,
     volume:        0.7,
     animations:    true,
   };
