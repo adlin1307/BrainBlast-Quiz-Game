@@ -1,6 +1,10 @@
 # BrainBlast - Interactive Quiz Game
 A modern interactive quiz game featuring Solo & Multiplayer modes, immersive audio,  educational fun facts, and 10 quiz categories.
 
+🌐 **Live Demo:** [Play BrainBlast](https://adlin1307.github.io/BrainBlast-Quiz-Game/)
+
+---
+
 ## Intern Details
 
 - **Name:** Adlin A
